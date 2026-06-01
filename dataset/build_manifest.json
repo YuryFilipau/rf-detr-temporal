@@ -1,0 +1,225 @@
+{
+  "base_root": "data/dandelion_dataset2_temporal",
+  "video_root": "data/test",
+  "val_videos": [
+    "cars11",
+    "cars13",
+    "cars18"
+  ],
+  "items": [
+    {
+      "source": "base",
+      "split": "train",
+      "images": 2350,
+      "annotations": 2947,
+      "clipped_bboxes": 0,
+      "dropped_empty_bboxes": 0
+    },
+    {
+      "source": "base",
+      "split": "val",
+      "images": 650,
+      "annotations": 803,
+      "clipped_bboxes": 0,
+      "dropped_empty_bboxes": 0
+    },
+    {
+      "source": "video",
+      "video": "car5",
+      "split": "train",
+      "images": 335,
+      "annotations": 4708,
+      "empty_frames": 0,
+      "clipped_bboxes": 4536,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/car5/cars5.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars",
+      "split": "train",
+      "images": 135,
+      "annotations": 405,
+      "empty_frames": 0,
+      "clipped_bboxes": 394,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars/cars.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars10",
+      "split": "train",
+      "images": 266,
+      "annotations": 263,
+      "empty_frames": 3,
+      "clipped_bboxes": 263,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars10/cars10_loWr3Rm3.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars11",
+      "split": "val",
+      "images": 694,
+      "annotations": 862,
+      "empty_frames": 0,
+      "clipped_bboxes": 861,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars11/cars11_7Vk0zZh0.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars12",
+      "split": "train",
+      "images": 827,
+      "annotations": 3243,
+      "empty_frames": 0,
+      "clipped_bboxes": 3075,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars12/cars12.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars13",
+      "split": "val",
+      "images": 242,
+      "annotations": 648,
+      "empty_frames": 0,
+      "clipped_bboxes": 497,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars13/car13.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars14",
+      "split": "train",
+      "images": 216,
+      "annotations": 216,
+      "empty_frames": 0,
+      "clipped_bboxes": 211,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars14/car14.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars15",
+      "split": "train",
+      "images": 600,
+      "annotations": 506,
+      "empty_frames": 94,
+      "clipped_bboxes": 453,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars15/car15.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars16",
+      "split": "train",
+      "images": 487,
+      "annotations": 1450,
+      "empty_frames": 0,
+      "clipped_bboxes": 1382,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars16/car16 (online-video-cutter.com) (1).mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars17",
+      "split": "train",
+      "images": 304,
+      "annotations": 304,
+      "empty_frames": 0,
+      "clipped_bboxes": 290,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars17/car17.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars18",
+      "split": "val",
+      "images": 557,
+      "annotations": 1351,
+      "empty_frames": 0,
+      "clipped_bboxes": 1221,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars18/car18 (online-video-cutter.com).mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars19",
+      "split": "train",
+      "images": 627,
+      "annotations": 3230,
+      "empty_frames": 0,
+      "clipped_bboxes": 2944,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars19/car19 (online-video-cutter.com).mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars20",
+      "split": "train",
+      "images": 279,
+      "annotations": 606,
+      "empty_frames": 0,
+      "clipped_bboxes": 581,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars20/car20.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars3",
+      "split": "train",
+      "images": 259,
+      "annotations": 241,
+      "empty_frames": 18,
+      "clipped_bboxes": 197,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars3/car3.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars6",
+      "split": "train",
+      "images": 269,
+      "annotations": 217,
+      "empty_frames": 52,
+      "clipped_bboxes": 217,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars6/cars6.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars7",
+      "split": "train",
+      "images": 428,
+      "annotations": 600,
+      "empty_frames": 42,
+      "clipped_bboxes": 548,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars7/cars7.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars8",
+      "split": "train",
+      "images": 419,
+      "annotations": 980,
+      "empty_frames": 0,
+      "clipped_bboxes": 819,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars8/cars8.mp4"
+    },
+    {
+      "source": "video",
+      "video": "cars9",
+      "split": "train",
+      "images": 376,
+      "annotations": 953,
+      "empty_frames": 0,
+      "clipped_bboxes": 952,
+      "dropped_empty_bboxes": 0,
+      "video_file": "data/test/cars9/cars9.mp4"
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.ruff_cache/
+
+# Keep this export GitHub-friendly by default.
+*.ckpt
+*.pth
+*.pt
+*.mp4
+*.avi
+*.mov
+*.mkv
+*.jpg
+*.jpeg
+*.png
+
+!reports/**/*.png
