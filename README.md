@@ -185,3 +185,7 @@ reports/rfdetr_full_10ep_comparison/
 ```
 
 Temporal версия получила немного выше mAP, AP50, AP75 и ниже validation loss. Baseline получил немного выше mAR. Для окончательного вывода нужно смотреть не только COCO-метрики, но и поведение на видео: пропуски, скачки bbox и стабильность score между соседними кадрами.
+
+## Датасет
+
+Датасет, использованный для обучения моделей: https://drive.google.com/drive/folders/1O9LU4XEXSAF2sSBWG3jrWRjRuYtToKOA?usp=drive_link
