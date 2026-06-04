@@ -22,6 +22,124 @@ key frame + reference frames
 
 Аннотации используются только для key frame. Reference frames не имеют своего loss. Они нужны как дополнительный контекст.
 
+## Архитектура
+<img width="1280" height="525" alt="image_2026-06-04_13-16-39" src="https://github.com/user-attachments/assets/0d4fc167-9026-4014-bf98-827ae2489f65" />
+
+### Input Frames
+
+На вход подается набор кадров из одной видеопоследовательности:
+
+```text
+Key frame t
+Reference frame t-2
+Reference frame t+2
+Reference frame t+4
+```
+
+`Key frame` - основной кадр, для которого есть ground truth и по которому считается loss.
+
+`Reference frames` - соседние кадры. Они проходят через модель, но не имеют собственного target loss. Их задача - дать temporal-контекст для текущего кадра.
+
+### Temporal COCO Loader
+
+`Temporal COCO Loader` выбирает соседние кадры по полям:
+
+```text
+video_id
+frame_id
+```
+
+Это позволяет собрать кадры из одного и того же видео и сохранить правильный временной порядок.
+
+### Packed Clip
+
+После загрузки кадры объединяются в один packed clip:
+
+```text
+[B, 3*(T+1), H, W]
+```
+
+Где:
+
+```text
+B - batch size
+T - количество reference frames
+3 - RGB каналы одного кадра
+H, W - высота и ширина изображения
+```
+
+Например, если используется 3 reference frames, то вход имеет 12 каналов:
+
+```text
+3 * (3 + 1) = 12
+```
+
+### Unpack Frames
+
+RF-DETR backbone ожидает обычные RGB изображения с 3 каналами. Поэтому packed clip разворачивается обратно в batch отдельных кадров:
+
+```text
+[B, 3*(T+1), H, W] -> [B*(T+1), 3, H, W]
+```
+
+После этого каждый кадр может быть обработан обычным RF-DETR backbone.
+
+### Shared RF-DETR Processing
+
+Каждый кадр проходит через одинаковую RF-DETR часть:
+
+```text
+Backbone -> Encoder / Decoder
+```
+
+Для всех кадров используются одни и те же веса модели.
+
+В результате формируются два типа query:
+
+```text
+Key-frame Queries: [B, N, C]
+Reference-frame Queries: [B, T, N, C]
+```
+
+Где:
+
+```text
+N - количество object queries
+C - размерность query-признаков
+```
+
+### Temporal Query Fusion
+
+`Temporal Query Fusion` объединяет признаки текущего кадра и соседних кадров.
+
+Key-frame queries выступают как основной объект уточнения, а reference-frame queries используются как источник временного контекста.
+
+### Group-DETR Query Fusion
+
+RF-DETR использует Group-DETR queries. Чтобы снизить расход памяти, temporal fusion выполняется по группам queries, а не для всех queries сразу.
+
+### Detection Heads
+
+После temporal fusion остаются только уточненные query текущего кадра:
+
+```text
+Fused Key-frame Queries
+```
+
+Они передаются в стандартные RF-DETR heads:
+
+```text
+Class / Box Heads
+```
+
+Архитектура heads не меняется.
+
+### Output
+
+На выходе модель предсказывает объекты только для key frame, а Loss считается только по аннотациям текущего кадра.
+
+Reference frames не сравниваются с ground truth напрямую. Их задача - улучшить признаки текущего кадра за счет временного контекста.
+
 ## Зачем это сделано
 
 Для задачи автопилота объект на одном кадре может быть плохо виден:
